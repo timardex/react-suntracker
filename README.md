@@ -1,4 +1,4 @@
-This is a Roulette game made with React and Redux.
+This is a Suntracker app made with React and Redux.
 
 In the project directory, please run:
 
