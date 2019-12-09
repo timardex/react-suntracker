@@ -43,6 +43,30 @@ const Sidebar = props => {
     )
 }
 
+let coordinates = [];
+let _lat, _lng;
+const getPosition = (options) => {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
+}
+    
+getPosition()
+.then((position) => {
+    coordinates.push({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    })
+})
+.catch((err) => {
+    console.error(err.message);
+});
+
+setTimeout(() => {
+    _lat = parseFloat(coordinates.map(val => val.lat))
+    _lng = parseFloat(coordinates.map(val => val.lng))
+}, 500)
+
 function mapStateToProps(state) {
     return{
         sidebarActive: state.sidebarActive,
@@ -59,30 +83,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    let coordinates = [];
-    let _lat, _lng;
-    const getPosition = (options) => {
-        return new Promise((resolve, reject) => {
-            navigator.geolocation.getCurrentPosition(resolve, reject, options);
-        });
-    }
-        
-    getPosition()
-    .then((position) => {
-        coordinates.push({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        })
-    })
-    .catch((err) => {
-        console.error(err.message);
-    });
-
-    setTimeout(() => {
-        _lat = parseFloat(coordinates.map(val => val.lat))
-        _lng = parseFloat(coordinates.map(val => val.lng))
-    }, 500)
-
     
     return{
         toggleSidebar:() => {
