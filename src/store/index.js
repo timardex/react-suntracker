@@ -71,17 +71,17 @@ const reducer = (state = initialState, action) => {
             sunset = parseInt(sunset);
             timenow = parseInt(timenow);
         
-            let dusk = sunrise - 3;
+            let dusk = sunrise - 10;
             let down = sunset + 10;
         
             let noon = sunset - sunrise;
             noon = noon / 2;
             noon = noon + sunrise;
 
-            let _sunStyle, _sunUpDown, _boolean, _scenery;
+            let _sunStyle, _sunUpDown = 'up', _boolean, _scenery;
             if (timenow >= sunrise && timenow <= noon) {
                 _sunStyle = timenow - sunrise;
-                _sunUpDown = 'fas fa-arrow-up';
+                _sunUpDown = 'up';
                 _boolean = true;
                 _scenery = 'linear-gradient(to bottom, rgba(29,167,204,1) 0%,rgba(155,194,204,1) 100%)';
 
@@ -92,7 +92,7 @@ const reducer = (state = initialState, action) => {
 
             if (timenow > noon && timenow <= sunset) {
                 _sunStyle = sunset - timenow;
-                _sunUpDown = 'fas fa-arrow-down';
+                _sunUpDown = 'down';
                 _boolean = true;
                 _scenery = 'linear-gradient(to bottom, rgba(29,167,204,1) 0%,rgba(155,194,204,1) 100%)';
                 

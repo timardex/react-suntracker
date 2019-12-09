@@ -23,9 +23,9 @@ const Sidebar = props => {
         }
     }
     return(
-        <div className={props.sidebarActive ? 'information' : 'information inactive'}>
+        <div className={`information ${props.sidebarActive ? 'active' : 'inactive'}`}>
             <div className="trigger-sidebar" onClick={(e) => props.toggleSidebar()}>
-                <i className={props.sidebarActive ? 'fas fa-chevron-right' : 'fas fa-chevron-left'}></i>
+                <img src={require(`../assets/menu-arrow-${props.sidebarActive ? 'right' : 'left'}.png`)} alt="Open close menu" />
             </div>
 
             <div className="inner text-center">
@@ -65,7 +65,8 @@ getPosition()
 setTimeout(() => {
     _lat = parseFloat(coordinates.map(val => val.lat))
     _lng = parseFloat(coordinates.map(val => val.lng))
-}, 500)
+}, 1000)
+
 
 function mapStateToProps(state) {
     return{
@@ -107,7 +108,7 @@ function mapDispatchToProps(dispatch) {
                     }).catch(response => {
                         return Promise.reject(response)
                     })
-            },2000)
+            },3000)
         }
     }
 }

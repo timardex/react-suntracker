@@ -7,7 +7,7 @@ const TheSky = props => {
             {props.boolean ?
                 <div className="day-sky" style={{background: props.scenery}}>
                     <div className="sun" style={{bottom: props.sunStyle + '%'}}>
-                        <i className={props.sunUpDown}></i>
+                        <img src={require(`../../assets/sun-${props.sunUpDown}.png`)} alt="Sun up down" />
                     </div>
                 </div>
                 :

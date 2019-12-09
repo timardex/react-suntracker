@@ -7,7 +7,7 @@ const initialState = {
     today: null,
     country: '',
     sunStyle: '',
-    sunUpDown: '',
+    sunUpDown: 'up',
     scenery: '',
     btnText: 'Track the Sun',
     boolean: true,

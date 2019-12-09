@@ -233,12 +233,19 @@ $numberOfStars: 1500;
     .information {
         position: absolute;
         top: 0;
-        right: 0;
         width: 250px;
         height: 100%;
         z-index: 1000;
         transition: all .3s linear;
         background: rgba(255,255,255,.7);
+
+        &.inactive {
+            right: -250px;
+        }
+
+        &.active {
+            right: 0;
+        }
 
         .trigger-sidebar {
             position: absolute;
@@ -251,11 +258,13 @@ $numberOfStars: 1500;
             align-items: center;
             cursor: pointer;
             background: rgba(255,255,255,.7);
+
+            img {
+                width: 20px;
+            }
         }
 
-        &.inactive {
-            right: -250px;
-        }
+        
 
         .inner {
             height: 100%;
@@ -337,16 +346,13 @@ $numberOfStars: 1500;
     margin-top: 0px;
     transition: all 1s linear;
     
-    .fas {
+    img {
         position: absolute;
         top: -65px;
         right: 0;
         left: 0;
         margin: auto;
-        font-size: 2rem;
         width: 28px;
-        color: #ffd93b;
-        text-shadow: 0px 1px 5px rgba(0, 0, 0, .5);
         transition: all 1s linear;
     }
 
