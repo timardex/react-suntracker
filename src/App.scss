@@ -5,6 +5,16 @@ $cratersShadow: #cecece;
 $glow: #b2dcf3;
 $numberOfStars: 1500;
 
+html, body, #root {
+    height: 100%;
+}
+
+#root {
+    max-width: 1920px;
+    position: relative;
+    margin: auto;
+}
+
 .tree {
     height: 100px;
     width: 100px;

@@ -1,4 +1,4 @@
-This is a Suntracker app made with React and Redux.
+This is a Suntracker app made with React and Redux using OpenWeatherMap API.
 
 In the project directory, please run:
 

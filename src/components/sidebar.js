@@ -98,7 +98,7 @@ function mapDispatchToProps(dispatch) {
             setTimeout(() =>{
                 const action = {type: 'GET_COORDINATES', lat: _lat, lng: _lng}
                 dispatch(action)
-            }, 2000)
+            }, 3000)
             setTimeout(() => {
                 let url = `https://api.openweathermap.org/data/2.5/weather?lat=${_lat}&lon=${_lng}&APPID=${APIkey}`;
                 axios.get(url)
@@ -108,7 +108,7 @@ function mapDispatchToProps(dispatch) {
                     }).catch(response => {
                         return Promise.reject(response)
                     })
-            },3000)
+            },4000)
         }
     }
 }
