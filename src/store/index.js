@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {converAMPMto24h, convertTimestamp} from './helpers';
+import {convertAMPMto24h, convertTimestamp} from './helpers';
 import {createStore} from 'redux';
 
 const reducer = (state = initialState, action) => {    
@@ -26,8 +26,8 @@ const reducer = (state = initialState, action) => {
                 infoActive: true,
             }
         case 'LOAD_SUNRISE_SUNSET':
-            let sunrise = converAMPMto24h(action.response.data.sys.sunrise);
-            let sunset = converAMPMto24h(action.response.data.sys.sunset);
+            let sunrise = convertAMPMto24h(action.response.data.sys.sunrise);
+            let sunset = convertAMPMto24h(action.response.data.sys.sunset);
 
             let date = new Date();
             let hours = date.getHours();

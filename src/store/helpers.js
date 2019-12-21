@@ -1,5 +1,5 @@
 /* convert am/pm to 24h */
-export const converAMPMto24h = (time) => {
+export const convertAMPMto24h = (time) => {
     let date = new Date(time * 1000);
     let hours = date.getHours();
     // Minutes part from the timestamp
