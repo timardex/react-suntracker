@@ -1,29 +1,8 @@
 import initialState from './initialState';
+import {converAMPMto24h, convertTimestamp} from './helpers';
 import {createStore} from 'redux';
 
-const reducer = (state = initialState, action) => {
-    /* convert am/pm to 24h */
-    const timeConvertor = (time) => {
-        let date = new Date(time * 1000);
-        let hours = date.getHours();
-        // Minutes part from the timestamp
-        let minutes = "0" + date.getMinutes();
-        // Seconds part from the timestamp
-        //let seconds = "0" + date.getSeconds();
-
-        return hours + minutes.substr(-2);
-    }
-    
-    const timeConvertor2 = (time) => {
-        let date = new Date(time * 1000);
-        let hours = date.getHours();
-        // Minutes part from the timestamp
-        let minutes = date.getMinutes();
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        return hours + ':' + minutes;
-    }
-
-    
+const reducer = (state = initialState, action) => {    
     switch(action.type) {
         case 'TOGGLE_SIDEBAR':
             return{
@@ -47,8 +26,8 @@ const reducer = (state = initialState, action) => {
                 infoActive: true,
             }
         case 'LOAD_SUNRISE_SUNSET':
-            let sunrise = timeConvertor(action.response.data.sys.sunrise);
-            let sunset = timeConvertor(action.response.data.sys.sunset);
+            let sunrise = converAMPMto24h(action.response.data.sys.sunrise);
+            let sunset = converAMPMto24h(action.response.data.sys.sunset);
 
             let date = new Date();
             let hours = date.getHours();
@@ -114,8 +93,8 @@ const reducer = (state = initialState, action) => {
 
             return{
                 ...state,
-                sunrise: timeConvertor2(action.response.data.sys.sunrise),
-                sunset: timeConvertor2(action.response.data.sys.sunset),
+                sunrise: convertTimestamp(action.response.data.sys.sunrise),
+                sunset: convertTimestamp(action.response.data.sys.sunset),
                 country: action.response.data.sys.country,
                 timenow: `${hours}:${minutes}`,
                 today: `${dd}/${mm}/${yyyy}`,
