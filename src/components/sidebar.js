@@ -3,7 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import LoadingSpinner from './loadingSpinner';
 
-import APIkey from './API-key';
+import APIKey from './APIKey';
 
 const Sidebar = props => {
     const showInfoList = () => {
@@ -34,7 +34,7 @@ const Sidebar = props => {
                     <p className="text-left">
                         This app is a live Sun tracker which is using your geolocation (Latitude and Longitude). You need to give access for the app to use it!
                     </p>
-                    <button className="btn btn-warning mb-3" onClick={(e) => props.getCoordinates()}>{props.btnText}</button>
+                    <button className="btn btn-warning mb-3" onClick={(e) => {props.pushButton(); props.getCoordinates(); props.loadSunriseSunset()}}>{props.btnText}</button>
                     {showInfoList()}
                     <LoadingSpinner />
                 </div>
@@ -45,28 +45,6 @@ const Sidebar = props => {
 
 let coordinates = [];
 let _lat, _lng;
-const getPosition = (options) => {
-    return new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject, options);
-    });
-}
-    
-getPosition()
-.then((position) => {
-    coordinates.push({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-    })
-})
-.catch((err) => {
-    console.error(err.message);
-});
-
-setTimeout(() => {
-    _lat = parseFloat(coordinates.map(val => val.lat))
-    _lng = parseFloat(coordinates.map(val => val.lng))
-}, 1000)
-
 
 function mapStateToProps(state) {
     return{
@@ -90,17 +68,40 @@ function mapDispatchToProps(dispatch) {
             const action = {type: 'TOGGLE_SIDEBAR'}
             dispatch(action)
         },
+        pushButton:() => {
+            const action = {type: 'PUSH_BTN'}
+            dispatch(action)
+        },
         getCoordinates:() => {
-            setTimeout(() =>{
-                const action = {type: 'PUSH_BTN'}
-                dispatch(action)
+            const getPosition = (options) => {
+                return new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+                });
+            }
+                
+            getPosition()
+            .then((position) => {
+                coordinates.push({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                })
             })
-            setTimeout(() =>{
+            .catch((err) => {
+                console.error(err.message);
+            });
+            
+            setTimeout(() => {
+                _lat = parseFloat(coordinates.map(val => val.lat))
+                _lng = parseFloat(coordinates.map(val => val.lng))
+
                 const action = {type: 'GET_COORDINATES', lat: _lat, lng: _lng}
                 dispatch(action)
-            }, 3000)
+            }, 2000)
+        },
+
+        loadSunriseSunset:() => {
             setTimeout(() => {
-                let url = `https://api.openweathermap.org/data/2.5/weather?lat=${_lat}&lon=${_lng}&APPID=${APIkey}`;
+                let url = `https://api.openweathermap.org/data/2.5/weather?lat=${_lat}&lon=${_lng}&APPID=${APIKey}`;
                 axios.get(url)
                     .then(response => {
                         const action = {type: 'LOAD_SUNRISE_SUNSET', response: response}
