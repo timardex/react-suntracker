@@ -8,7 +8,7 @@ and
 
 Runs the app in the development mode.
 
-Note: If you want to test it localy than you need to make a file called API-key.js inside src/components folder
+Note: If you want to test it localy than you need to make a file called APIKey.js inside src/components folder
 
 `const APIKey = 'your api key from https://openweathermap.org/current';
 export default APIKey;`
