@@ -1,5 +1,6 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from 'react'
+import {connect} from 'react-redux'
+import '../../assets/styles/theSky.scss'
 
 const TheSky = props => {
     return(

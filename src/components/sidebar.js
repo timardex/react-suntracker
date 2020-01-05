@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import LoadingSpinner from './loadingSpinner';
+import '../assets/styles/sidebar.scss'
 
 import APIKey from './APIKey';
 
@@ -21,11 +22,6 @@ const Sidebar = props => {
                                 <li><u>Date</u>: <i>{props.today}</i></li>
                             </ul>
                         </div>
-
-                        {isNaN(props.lat) && <div class="show-error-msg text-center mt-4">
-                                                <h6>Oops! <br/> Something went wrong</h6>
-                                                <p>Please refresh the app and push the <b>Track the Sun</b> button again!</p>
-                                            </div>}
                     </div>
         }
     }

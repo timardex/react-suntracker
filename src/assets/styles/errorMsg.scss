@@ -1,0 +1,19 @@
+.show-error-msg {
+  position: fixed;
+  bottom: 0; left: 0;
+  z-index: 1001;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2f2f2f;
+  div {
+    background: #fff;
+    padding: .5rem;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  p {
+    margin: 0;
+  }
+}
