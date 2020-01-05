@@ -8,17 +8,24 @@ import APIKey from './APIKey';
 const Sidebar = props => {
     const showInfoList = () => {
         if(props.infoActive) {
-            return <div className="info-list text-left">
-                        <p className="text-center">This is your information:</p>
-                        <ul>
-                            <li><u>Latitude</u>: <i>{props.lat}</i></li>
-                            <li><u>Longitude</u>: <i>{props.lng}</i></li>
-                            <li><u>Country</u>: <i>{props.country}</i></li>
-                            <li><u>Sunrise</u>: <i>{props.sunrise}</i></li>
-                            <li><u>Sunset</u>: <i>{props.sunset}</i></li>
-                            <li><u>Time now</u>: <i>{props.timenow}</i></li>
-                            <li><u>Date</u>: <i>{props.today}</i></li>
-                        </ul>
+            return  <div>
+                        <div className="info-list text-left">
+                            <p className="text-center">This is your information:</p>
+                            <ul>
+                                <li><u>Latitude</u>: <i>{props.lat}</i></li>
+                                <li><u>Longitude</u>: <i>{props.lng}</i></li>
+                                <li><u>Country</u>: <i>{props.country}</i></li>
+                                <li><u>Sunrise</u>: <i>{props.sunrise}</i></li>
+                                <li><u>Sunset</u>: <i>{props.sunset}</i></li>
+                                <li><u>Time now</u>: <i>{props.timenow}</i></li>
+                                <li><u>Date</u>: <i>{props.today}</i></li>
+                            </ul>
+                        </div>
+
+                        {isNaN(props.lat) && <div class="show-error-msg text-center mt-4">
+                                                <h6>Oops! <br/> Something went wrong</h6>
+                                                <p>Please refresh the app and push the <b>Track the Sun</b> button again!</p>
+                                            </div>}
                     </div>
         }
     }
