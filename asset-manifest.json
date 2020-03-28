@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-suntracker/static/css/main.57877c42.chunk.css",
+    "main.js": "/react-suntracker/static/js/main.ce11261c.chunk.js",
+    "main.js.map": "/react-suntracker/static/js/main.ce11261c.chunk.js.map",
+    "runtime-main.js": "/react-suntracker/static/js/runtime-main.e37a6084.js",
+    "runtime-main.js.map": "/react-suntracker/static/js/runtime-main.e37a6084.js.map",
+    "static/css/2.de424728.chunk.css": "/react-suntracker/static/css/2.de424728.chunk.css",
+    "static/js/2.f2c5c393.chunk.js": "/react-suntracker/static/js/2.f2c5c393.chunk.js",
+    "static/js/2.f2c5c393.chunk.js.map": "/react-suntracker/static/js/2.f2c5c393.chunk.js.map",
+    "index.html": "/react-suntracker/index.html",
+    "precache-manifest.e7501bb3af75f02bf9d41666a68b6c69.js": "/react-suntracker/precache-manifest.e7501bb3af75f02bf9d41666a68b6c69.js",
+    "service-worker.js": "/react-suntracker/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/react-suntracker/static/css/2.de424728.chunk.css.map",
+    "static/css/main.57877c42.chunk.css.map": "/react-suntracker/static/css/main.57877c42.chunk.css.map",
+    "static/js/2.f2c5c393.chunk.js.LICENSE.txt": "/react-suntracker/static/js/2.f2c5c393.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e37a6084.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.f2c5c393.chunk.js",
+    "static/css/main.57877c42.chunk.css",
+    "static/js/main.ce11261c.chunk.js"
+  ]
+}
