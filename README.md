@@ -13,4 +13,4 @@ Note: If you want to test it localy than you need to make a file called APIKey.j
 `const APIKey = 'your api key from https://openweathermap.org/current';
 export default APIKey;`
 
-To view the working demo please visit https://react-suntracker-app.firebaseapp.com/
+To view the working demo please visit https://timardex.github.io/react-suntracker/
