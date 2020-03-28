@@ -14,11 +14,6 @@
 # api key
 /src/components/APIKey.js
 
-/.firebase
-.firebaserc
-firebase-debug.log
-firebase.json
-
 # misc
 .DS_Store
 .env.local
